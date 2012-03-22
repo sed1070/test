@@ -1,0 +1,103 @@
+<script type="text/javascript">
+    jQuery(function($){
+        // We only want these styles applied when javascript is enabled
+        $('div.navigation').css({'width' : '300px', 'float' : 'left'});
+        $('div.content').css('display', 'block');
+
+        // Initially set opacity on thumbs and add
+        // additional styling for hover effect on thumbs
+        var onMouseOutOpacity = 0.67;
+        $('#thumbs20338349 ul.thumbs li').opacityrollover({
+            mouseOutOpacity:   onMouseOutOpacity,
+            mouseOverOpacity:  1.0,
+            fadeSpeed:         'fast',
+            exemptionSelector: '.selected'
+        });
+        options={
+            delay:                     2500,
+            numThumbs:                 10,
+            preloadAhead:              10,
+            enableTopPager:            true,
+            enableBottomPager:         true,
+            maxPagesToShow:            7,
+            imageContainerSel:         '#slideshow20338349',
+            controlsContainerSel:      '#controls20338349',
+            captionContainerSel:       '#caption20338349',
+            loadingContainerSel:       '#loading20338349',
+            renderSSControls:          false,
+            renderNavControls:         true,
+            playLinkText:              'Play Slideshow',
+            pauseLinkText:             'Pause Slideshow',
+            prevLinkText:              'Previous',
+            nextLinkText:              'Next',
+            nextPageLinkText:          'Next',
+            prevPageLinkText:          'Prev',
+            enableHistory:             false,
+            autoStart:                 false,
+            syncTransitions:           true,
+            defaultTransitionDuration: 900,
+            onSlideChange:             function(prevIndex, nextIndex) {
+                // 'this' refers to the gallery, which is an extension of $('#thumbs')
+                this.find('ul.thumbs').children()
+                .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+                .eq(nextIndex).fadeTo('fast', 1.0);
+            },
+            onPageTransitionOut:       function(callback) {
+                this.fadeTo('fast', 0.0, callback);
+            },
+            onPageTransitionIn:        function() {
+                this.fadeTo('fast', 1.0);
+            }
+        }
+				
+					
+        $('.gal_selector20338349 a').click(function(e){
+            $.ajax({
+                url: $(this).attr('href'),
+                success: function(data) {
+                    $('#thumbs20338349 .thumbs').html(data);
+                    $('#thumbs20338349').galleriffic(options);
+                }
+            });
+            e.preventDefault();
+        });
+				
+				
+        $.ajax({
+            url: $('.gal_selector20338349 a').eq(0).attr('href'),
+            success: function(data) {
+                $('#thumbs20338349 .thumbs').html(data);
+                $('#thumbs20338349').galleriffic(options);	
+            }
+        });
+					
+/*style="display:none;"*/
+    });
+</script> 
+
+ <ul class="gal_selector20338349 gal_tabs"  >             <li><a href="/index.php?option=com_phocagallery&view=category&id=7&format=gallery">20338349День перемоги 2011</a></li>
+
+        </ul>
+
+<div class="clr">&nbsp;</div>
+
+<div id="page">
+    <div id="container">	
+
+        <!-- Start Advanced Gallery Html Containers -->
+        <div id="gallery20338349" class="gallery content">
+            <div id="controls20338349" class="controls"></div>
+            <div class="slideshow-container">
+                <div id="loading20338349" class="loader"></div>
+
+                <div id="slideshow20338349" class="slideshow"></div>
+            </div>
+            <div id="caption20338349" class="caption-container"></div>
+        </div>
+        <div id="thumbs20338349" class="navigation gallery_20338349">
+            <ul class="thumbs noscript"> </ul>
+        </div>
+        <div style="clear: both;"></div>
+
+    </div>
+</div>

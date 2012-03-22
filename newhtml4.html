@@ -1,0 +1,57 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        
+<div class="items-leading">
+<script type="text/javascript"> 
+
+            jQuery(document).ready(function($) { 
+                $("#poslygy_nas") .tablesorter({
+                    widthFixed: true, 
+                    widgets: ['zebra']
+                }) .tablesorterPager({
+                    container: $("#pager")
+                });
+            });
+        </script> 
+
+        <table class="tablesorter" id="poslygy_nas"><colgroup><col style="width: 37px;"><col style="width: 419px;"><col style="width: 152px;"></colgroup> 
+            <thead> 
+                <tr> 
+                    <th class="header">Шифр</th> 
+                    <th class="header">Назва послуги</th> 
+                    <th class="header">Адміністративний орган</th> 
+                </tr> 
+            </thead> 
+            <tbody><tr class="even">
+    <td>01-01</td>
+    <td>Надання   фізичним і юридичним особам копій документів, які зберігаються у відділі (версія 03)</td>
+    <td>Відділ по роботі з документами</td>
+  </tr><tr class="odd">
+    <td>04-02</td>
+    <td>Надання документів, які підтверджують визнання  фізичних осіб (чи їх родичів) потерпілими від репресій (версія 03)</td>
+    <td>Апарат міської ради</td>
+  </tr><tr class="even">
+    <td>04-01<strong></strong></td>
+    <td>Надання  витягу з протоколу пленарного засідання сесії міської ради, копії рішення  міської ради (версія 03)</td>
+    <td>Апарат  міської ради</td>
+  </tr></tbody> 
+        </table> 
+
+                
+</div>
+
+                
+                
+
+
+    </body>
+</html>

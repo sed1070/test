@@ -1,0 +1,137 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+
+
+        <script type="text/javascript">
+            jQuery(function($){
+                $('.accordion').find('.more').click(function(e){
+                    targetBlock=$(this).parents().find('.accordion').find('.info');
+                    
+                    if (!$(this).hasClass('close')){                        
+                        $.ajax({
+                            url: $(this).attr('href'),
+                            success: function(data) {
+                                targetBlock.html(data);
+                            }
+                        });
+                        console.log($(this).attr('href'));
+                        $(this).addClass('close');                   
+                        targetBlock.delay(200).show(400);                       
+                    }else{
+                        targetBlock.hide(300);
+                        $(this).removeClass('close');
+                    }
+                    e.preventDefault();
+                });
+                
+            });
+        </script>
+
+        <table cellspacing="0" cellpadding="0">
+            <tr>
+                <td valign="top"></td>
+            </tr>
+            <tr>
+                <td valign="top" width="1" align="center"><a href="http://kremen.gov.ua/staff/?id=24"><img src="http://kremen.gov.ua/img/staff/small_129161887447.jpg" alt="" /></a></td>
+                <td valign="top"><strong>Погрібний Андрій Михайлович</strong><br />
+                    <br />
+                    <strong>Посада:</strong> Перший заступник міського голови<br />
+                    <strong>Прийом:</strong> 2 понеділок з 15.00-17.00, 3 понеділок з 10.00-12.00 ( вул. Першотравнева,1)<br />
+                    <strong>Телефон:</strong> ( 0536) 74-30-20<br />
+                    <br />
+                    <a href="http://kremen.gov.ua/staff/?id=24">Далi →</a></td>
+            </tr>
+            <tr>
+                <td valign="top" width="1" align="center"><a href="http://kremen.gov.ua/staff/?id=25"><img src="http://kremen.gov.ua/img/staff/small_129058660616.jpg" alt="" /></a></td>
+                <td valign="top"><strong>Воловик Микола Леонідович</strong><br />
+                    <br />
+                    <strong>Посада:</strong> Заступник міського голови<br />
+                    <strong>Прийом:</strong> 1 середа з 15.00-17.00, 2 середа з 10.00-12.00<br />
+                    <strong>Телефон:</strong> (0536) 74-30-22<br />
+                    <br />
+                    <a href="http://kremen.gov.ua/staff/?id=25">Далi →</a></td>
+            </tr>
+            <tr>
+                <td valign="top" width="1" align="center"><a href="http://kremen.gov.ua/staff/?id=48"><img src="http://kremen.gov.ua/img/staff/small_123244176287.jpg" alt="" /></a></td>
+                <td valign="top"><strong>Неіленко Тетяна Григорівна</strong><br />
+                    <br />
+                    <strong>Посада:</strong> Заступник міського голови- начальник фінансового управління міськвиконкому<br />
+                    <strong>Прийом:</strong> <br />
+                    <strong>Телефон:</strong> 8 (05366) 3-11-59<br />
+                    <br />
+                    <a href="http://kremen.gov.ua/staff/?id=48">Далi →</a></td>
+            </tr>
+            <tr>
+                <td colspan="2"  valign="top"><p>&nbsp;</p>
+                    <div class="accordion">
+                        <table>
+                            <tr>
+                                <td valign="top" align="center"><a href="http://kremen.gov.ua/staff/?id=50"><img src="http://kremen.gov.ua/img/staff/small_130502670460.JPG" alt="" /></a></td>
+                                <td valign="top"><strong>Шаповалов Руслан Васильович</strong><br />
+                                    <br />
+                                    <strong>Посада:</strong> Керуючий справами міськвиконкому <br />
+                                    <strong>Прийом:</strong> 1 вівторок з 10.00-12.00, 2 вівторок з 15.00-17.00 ( вул. Першотравнева,1)<br />
+                                    <strong>Телефон:</strong> ( 0536) 74-30-24<br />
+                                    <br />
+                                    <a class="more" href="http://city.amk-web.com/index.php?option=com_content&view=article&format=raw&id=175">Далi →</a></td>
+                            </tr>
+                        </table>
+                        <div class="info" style="display:none;">none</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" width="1" align="center"><a href="http://kremen.gov.ua/staff/?id=152"><img src="http://kremen.gov.ua/img/staff/small_129068056882.jpg" alt="" /></a></td>
+                <td valign="top"><strong>Малецький Віталій Олексійович</strong><br />
+                    <br />
+                    <strong>Посада:</strong> заступник міського голови <br />
+                    <strong>Прийом:</strong> 2 понеділок з 10.00-12.00, 4 понеділок з 15.00-17.00 ( вул. Першотравнева,1)<br />
+                    <strong>Телефон:</strong> 0 (536)73-00-47<br />
+                    <br />
+                    <a href="http://kremen.gov.ua/staff/?id=152">Далi →</a></td>
+            </tr>
+            <tr>
+                <td valign="top" width="1" align="center"><a href="http://kremen.gov.ua/staff/?id=153"><img src="http://kremen.gov.ua/img/staff/small_129102445026.jpg" alt="" /></a></td>
+                <td valign="top"><strong>Калашник Віктор Васильович</strong><br />
+                    <br />
+                    <strong>Посада:</strong> заступник міського голови<br />
+                    <strong>Прийом:</strong> 3 середа з 10.00-12.00, 4 середа з 15.00-17.00 ( вул. Першотравнева,1)<br />
+                    <strong>Телефон:</strong> 0 (536) 73--00-52<br />
+                    <br />
+                    <a href="http://kremen.gov.ua/staff/?id=153">Далi →</a></td>
+            </tr>
+            <tr>
+                <td valign="top" width="1" align="center"><a href="http://kremen.gov.ua/staff/?id=154"><img src="http://kremen.gov.ua/img/staff/small_129058710414.jpg" alt="" /></a></td>
+                <td valign="top"><strong>Медведовський Валерій Володимирович </strong><br />
+                    <br />
+                    <strong>Посада:</strong> заступник міського голови<br />
+                    <strong>Прийом:</strong> 3 вівторок з 15.00-17.00, 4 вівторок з 10.00-12.00 ( вул. Першотравнева,1)<br />
+                    <strong>Телефон:</strong> 0(536) 3-63-66, 73-00-52<br />
+                    <br />
+                    <a href="http://kremen.gov.ua/staff/?id=154">Далi →</a></td>
+            </tr>
+            <tr>
+                <td valign="top" width="1" align="center"><a href="http://kremen.gov.ua/staff/?id=167"><img src="http://kremen.gov.ua/img/staff/small_130510733228.jpg" alt="" /></a></td>
+                <td valign="top"><strong>Тараторін Володимир Никандрович</strong><br />
+                    <br />
+                    <strong>Посада:</strong> заступник міського голови<br />
+                    <strong>Прийом:</strong> вул. Першотравнева, 1; 2 четвер з10.00 до 12.00год., 3 четвер з 15.00 до 17.00 години<br />
+                    <strong>Телефон:</strong> 0 (536) 74--35-22<br />
+                    <br />
+                    <a href="http://kremen.gov.ua/staff/?id=167">Далi →</a></td>
+            </tr>
+        </table>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,120 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae dolor quis nulla aliquam ultricies. In non ipsum non ligula gravida convallis. Cras ac velit <img src="images/banners/shop-ad-books.jpg" border="0" alt="" style="border-style: initial; border-color: initial;" />vitae nisl ultrices semper pellentesque non ligula. Cras eget enim id diam luctus tempus quis a nisi. Phasellus vel ipsum sit a<img src="images/powered_by.png" border="0" style="border-style: initial; border-color: initial;" />met purus fermentum tempus sed et dolor. Sed a nisl vel dui faucibus aliquam sed quis sem. Nunc eget elit non turpis facilisis faucibus. Cras libero risus, dictum id aliquet a, hendrerit et ante. Integer diam velit, luctus vitae aliquam ut, tincidunt a nisi.</p>
+<hr id="system-readmore" />
+
+
+ <script type="text/javascript">
+            jQuery(function($){
+                
+                $.ajax({
+                    url: 'http://city.amk-web.com/index.php?option=com_phocagallery&view=category&id=2&format=gallery',
+                    success: function(data) {
+                        $('.thumbs').html(data);
+                        alert('Load was performed.');
+                    }
+                });
+
+            });
+        </script> 
+       <div id="page">
+			<div id="container">
+				<h1><a href="index.html">Galleriffic</a></h1>
+				<h2>Thumbnail rollover effects and slideshow crossfades</h2>
+
+				<!-- Start Advanced Gallery Html Containers -->
+				<div id="gallery" class="content">
+					<div id="controls" class="controls"></div>
+					<div class="slideshow-container">
+						<div id="loading" class="loader"></div>
+						<div id="slideshow" class="slideshow"></div>
+					</div>
+					<div id="caption" class="caption-container"></div>
+				</div>
+				<div id="thumbs" class="navigation">
+					<ul class="thumbs noscript">
+						<li>
+							<a class="thumb" href="http://farm3.static.flickr.com/2201/1502907190_7b4a2a0e34.jpg" title="Title #21">
+								<img src="http://farm3.static.flickr.com/2201/1502907190_7b4a2a0e34_s.jpg" alt="Title #21" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://farm3.static.flickr.com/2201/1502907190_7b4a2a0e34_b.jpg">Download Original</a>
+								</div>
+								<div class="image-title">Title #21</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			jQuery(document).ready(function gal ($) {
+				// We only want these styles applied when javascript is enabled
+				$('div.navigation').css({'width' : '300px', 'float' : 'left'});
+				$('div.content').css('display', 'block');
+
+				// Initially set opacity on thumbs and add
+				// additional styling for hover effect on thumbs
+				var onMouseOutOpacity = 0.67;
+				$('#thumbs ul.thumbs li').opacityrollover({
+					mouseOutOpacity:   onMouseOutOpacity,
+					mouseOverOpacity:  1.0,
+					fadeSpeed:         'fast',
+					exemptionSelector: '.selected'
+				});
+				
+				// Initialize Advanced Galleriffic Gallery
+				var gallery = $('#thumbs').galleriffic({
+					delay:                     2500,
+					numThumbs:                 15,
+					preloadAhead:              10,
+					enableTopPager:            true,
+					enableBottomPager:         true,
+					maxPagesToShow:            7,
+					imageContainerSel:         '#slideshow',
+					controlsContainerSel:      '#controls',
+					captionContainerSel:       '#caption',
+					loadingContainerSel:       '#loading',
+					renderSSControls:          true,
+					renderNavControls:         true,
+					playLinkText:              'Play Slideshow',
+					pauseLinkText:             'Pause Slideshow',
+					prevLinkText:              '&lsaquo; Previous Photo',
+					nextLinkText:              'Next Photo &rsaquo;',
+					nextPageLinkText:          'Next &rsaquo;',
+					prevPageLinkText:          '&lsaquo; Prev',
+					enableHistory:             false,
+					autoStart:                 false,
+					syncTransitions:           true,
+					defaultTransitionDuration: 900,
+					onSlideChange:             function(prevIndex, nextIndex) {
+						// 'this' refers to the gallery, which is an extension of $('#thumbs')
+						this.find('ul.thumbs').children()
+							.eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+							.eq(nextIndex).fadeTo('fast', 1.0);
+					},
+					onPageTransitionOut:       function(callback) {
+						this.fadeTo('fast', 0.0, callback);
+					},
+					onPageTransitionIn:        function() {
+						this.fadeTo('fast', 1.0);
+					}
+				});
+			});
+		</script> 
+    </body>
+</html>
